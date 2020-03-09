@@ -1,32 +1,29 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <NavBar />
+    <v-content>
+      <MemoryTest/>
+    </v-content>
+    <v-footer padless>
+      <v-col
+          class="text-center"
+          cols="12"
+      >
+        {{ new Date().getFullYear() }} — <strong>Tom Caiger</strong>
+      </v-col>
+    </v-footer>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import MemoryTest from './components/MemoryTest';
+import NavBar from './components/NavBar';
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default {
+  name: 'App',
+  components: {
+    MemoryTest,
+    NavBar,
+  },
+};
+</script>
